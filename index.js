@@ -1,29 +1,24 @@
 // import { newTaskFormHandling } from "./form.js";
 import { format, addDays, startOfDay, endOfDay, formatISO, add} from 'https://cdn.jsdelivr.net/npm/date-fns@3.6.0/+esm';
 import { capitalizeFirstLetter, displayAllTasks, displayControlSystem} from './display_control.js';
-// import { displayYesterdayTask } from './display_control.js';
-// import { displayTodayTasks } from './display_control.js';
-// import { displayTomorrowTasks } from './display_control.js';
-// import { displayNext7Days } from './display_control.js';
-// import { displaythisMonthTasks } from './display_control.js';
-// import { displayThisQuarterDiv } from './display_control.js';
-// import { displayThisYearTasks } from './display_control.js';
+import { displayYesterdayTask } from './display_control.js';
+import { displayTodayTasks } from './display_control.js';
+import { displayTomorrowTasks } from './display_control.js';
+import { displayNext7Days } from './display_control.js';
+import { displaythisMonthTasks } from './display_control.js';
+import { displayThisQuarterDiv } from './display_control.js';
+import { displayThisYearTasks } from './display_control.js';
 import { generateProjectNames } from './display_control.js';
 import { CreateTask, CreateTaskDetails, getHoursAndMinutes, ModifyTaskDetails } from "./task.js";
 import { initializeFunction } from './initialize.js';
 
-
+let initialObject = CreateTaskDetails('Breathe', 'Take a deep breathe', '', '','personal','low',['Breathe in', 'Breathe Out'], false);
 
 
 
 // localStorage.setItem('tasksLibrary', JSON.stringify([]));
-export let myTasksDetailsLibrary = JSON.parse(localStorage.getItem('tasksLibrary')) || [];
-if(!myTasksDetailsLibrary){
-    let initialObject = CreateTaskDetails('Breathe', 'Take a deep breathe', '', '','personal','low',['Breathe in', 'Breathe Out'], false);
-    myTasksDetailsLibrary.push(initialObject);
-    localStorage.setItem('tasksLibrary', JSON.stringify(myTasksDetailsLibrary));
+export let myTasksDetailsLibrary = JSON.parse(localStorage.getItem('tasksLibrary')) || [initialObject];
 
-};
 // initializeFunction();
 
 
@@ -36,7 +31,16 @@ if(!myTasksDetailsLibrary){
 
 
 displayAllTasks();
-displayControlSystem();
+// displayControlSystem();
+
+displayYesterdayTask();
+displayTodayTasks();
+displayTomorrowTasks();
+displayNext7Days();
+displaythisMonthTasks();
+displayThisQuarterDiv();
+displayThisYearTasks();
+generateProjectNames();
 
 
 
@@ -69,7 +73,7 @@ function newTaskFormHandling() {
         removeAllCheckItemDiv();
         displayAllTasks();
         generateProjectNames();
-        displayControlSystem();
+        // displayControlSystem();
         document.getElementById('new_task').value = '';
         document.getElementById('task_details_child').style.display = 'none';
         document.getElementById('task_details_creation_form').style.display = 'block';
@@ -159,7 +163,7 @@ function taskDetailsFormHandling() {
         taskProjectsInnerHTML();
         removeAllCheckItemDiv()
         displayAllTasks();
-        displayControlSystem();
+        // displayControlSystem();
         generateProjectNames();
 
 

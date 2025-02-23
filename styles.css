@@ -1,0 +1,570 @@
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+    margin: 0;
+}
+
+body {
+    /* 3. Add accessible line-height */
+    line-height: 1.5;
+    /* 4. Improve text rendering */
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+    text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-wrap: balance;
+}
+
+/*
+    9. Create a root stacking context
+  */
+#root,
+#__next {
+    isolation: isolate;
+}
+
+
+
+
+
+body {
+    /* background-color: #C7F1E9; */
+    color: var(--dark-green);
+    min-width: 1200px;
+}
+
+.montserat {
+    font-family: 'montserratthin', Arial, Helvetica, sans-serif;
+}
+
+.poppins {
+    font-family: 'poppinsregular', Arial, Helvetica, sans-serif;
+}
+
+.trebuchet {
+    font-size: 48px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+:root {
+    --dark-green: #0c3f3a;
+    --my-background: #C7F1E9;
+    /* //font */
+    --poppins-bold: 'poppinsbold';
+    --poppins-medium: 'poppinsmedium';
+    --poppins-regular: 'poppinsregular';
+}
+
+.new_montserat {
+    font-display: swap;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+}
+
+.label_new_task {
+    font-family: 'poppinsregular';
+    font-size: 22px;
+}
+
+.new_task {
+    height: 48px;
+    /* width: calc(100% - 56px); */
+    width: 80%;
+    outline: 0;
+    border: 2px solid var(--dark-green);
+    display: block;
+    border-radius: 32px;
+    padding-left: 32px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#new_task_button {
+    outline: 0;
+    border: none;
+    display: block;
+    background-color: white;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#new_task_button>svg {
+    width: 90%;
+    height: auto;
+    fill: var(--dark-green);
+}
+
+#myForm {
+    font-size: 24px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    /* flex-direction: column;
+    align-items: center; */
+}
+
+#all_element {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-width: 100%;
+}
+
+#task_form {
+    display: flex;
+    width: 70%;
+    justify-content: center;
+    height: 15vh;
+    align-items: center;
+}
+
+#input_and_button {
+    display : flex;
+    justify-content : flex-start;
+    align-items : center;
+    gap : 8px;
+    flex-grow: 1;
+    margin-left: 16px;
+}
+
+#tasks_display {
+    display: flex;
+    font-size: 18px;
+    padding: 24px;
+    width: 50%;
+    border: 2px solid var(--dark-green);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    flex-direction: column;
+    /* align-items: center; */
+    gap: 12px;
+}
+
+#header {
+    width: 15%;
+    min-width: 225px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height : 15vh;
+    padding-left: 18px;
+    /* border: 2px solid black; */
+}
+
+#content_layout {
+    display: flex;
+    width: 100%;
+    border: 2px solid var(--dark-green);
+    height: 85vh;
+}
+
+
+
+
+
+#task_details {
+    flex-grow: 1;
+    border: 2px solid var(--dark-green);
+    padding: 18px;
+    
+}
+
+#task_details_creation_form {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 14px;
+}
+
+#task_details_creation_form span {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.new_task_form_child {
+    width: 100%;
+    display: flex;
+}
+
+.new_task_form_span {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.new_task_form_child>label {
+    width: 40%;
+}
+
+.new_task_form_child>input, .new_task_form_child>select {
+    width: 60%;
+    font-size: 14px;
+    outline: 0;
+    border: 1px solid var(--dark-green);
+    border-radius: 12px;
+    padding-left: 16px;
+}
+
+#task_details_creation {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#button_group {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    height: 36px;
+    margin-top: 24px;
+}
+
+#button_group button {
+    width: 25%;
+    border: 2px solid var(--dark-green);
+    background: none;
+    border-radius: 16px;
+    color: var(--dark-green);
+    cursor: pointer;
+}
+
+#button_group button:hover {
+    background: var(--dark-green);
+    color: white;
+}
+
+.taskBlock{
+    cursor: pointer;
+    border: 1px solid black;
+    padding: 12px 24px;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 3px 3px 0 #1f1f1f;
+}
+
+
+.taskDetailsItem {
+    font-family: 'poppinsregular';
+}
+
+#edit_task_details_button {
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+
+
+#sidebar {
+    font-weight: 400;
+    padding: 24px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 18%;
+    border: 2px solid var(--dark-green);
+    user-select: none;
+    color: #1f1f1f;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+#sidebar>div {
+    cursor: pointer;
+}
+
+#sidebar>div:hover {
+    background-color: #1f1f1f;
+    color: white !important;
+    border-radius: 6px;
+    fill: white;
+}
+
+.highlight {
+    background-color: #1f1f1f;
+    color: white !important;
+    border-radius: 6px;
+    fill: white;
+}
+
+
+#header_and_form {
+    display: flex;
+    width: 100%;
+    min-width: 100%;
+    min-height: 96px;
+
+}
+
+
+/* Hide the scrollbar */
+#tasks_display, #task_details, #sidebar {
+    overflow: auto; /* Enables scrolling */
+    scrollbar-width: none; /* Hides scrollbar in Firefox */
+    -ms-overflow-style: none; /* Hides scrollbar in IE/Edge */
+}
+
+/* Hides scrollbar for WebKit browsers (Chrome, Safari) */
+#tasks_display::-webkit-scrollbar, #task_details::-webkit-scrollbar, #sidebar::-webkit-scrollbar   {
+    display: none;
+}
+
+#task_form_parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+
+}
+
+
+/* ///Refactor this later */
+
+#sidebar>div {
+    height: 36px;
+    display: flex;
+    align-items: center;
+    gap: 8px
+}
+
+.svg-span {
+    height: 32px;
+    width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.svg-span>svg {
+    width:75%;
+    height:auto;
+}
+
+
+.createAndModify {
+    font-size: 12px;
+    /* font-weight: 300; */
+    color: #5c6c74;
+    display: flex;
+    justify-content: space-between;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+}
+
+
+.taskDescriptionParagraph{
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.taskDurationDiv {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+
+.taskCategoryAndPriorityDiv {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 400;
+    margin-top: 12px;
+}
+
+.taskPrioritySpan {
+    display: flex;
+    width: 120px;
+    gap: 8px;
+    justify-content: flex-end;
+    justify-self: flex-end;
+    align-items: center;
+}
+
+
+.editAndDelete {
+    display: flex;
+    margin-left: 24px;
+    margin-right: 24px;
+    gap: 48px;
+}
+
+.editAndDelete button {
+    background-color: white;
+    outline: 0;
+    border: 1px solid #1f1f1f;
+    border-radius: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
+    cursor: pointer;
+}
+
+
+.editAndDelete button:hover {
+    color: white;
+    background-color: #1f1f1f;
+}
+
+
+
+#extra_project:enabled {
+    /* border-color: lightblue; */
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50; /* Green border */
+}
+
+#extra_project:disabled {
+    background-color: #f0f0f0; /* Light gray background */
+    color: gray;
+    border: 2px solid #ccc; /* Gray border */
+    cursor: not-allowed; /* Change cursor to indicate it's disabled */
+}
+
+
+#form_checklist {
+    width: 100%;
+}
+
+#form_checklist fieldset {
+    width: 100%;
+}
+
+
+.add_check_item {
+    width: 120px;
+    border: 2px solid var(--dark-green);
+    background: none;
+    border-radius: 16px;
+    color: var(--dark-green);
+    cursor: pointer;
+}
+
+
+.add_check_item:hover {
+    background: var(--dark-green);
+    color: white;
+}
+
+
+#button_capsule {
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fieldset_child {
+    display: flex;
+    margin-top: 6px;
+
+}
+
+.fieldset_child label {
+    width: 25% !important;
+}
+
+.fieldset_child input {
+    height: 24px !important;
+    width: 50%;
+}
+
+
+.fieldset_child button {
+    height: 24px !important;
+    margin-left: auto;
+}
+
+.fieldset_remove_button {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    margin-right: 12px;
+    background-color: white;
+    outline: none;
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 16px;
+
+}
+
+
+.fieldset_remove_button svg {
+    width: 28px;
+    height: 28px;
+    border-radius: 14px;
+}
+
+/* .fieldset_remove_button svg:hover {
+    fill: white;
+    background: black;
+} */
+
+
+.projectTitle {
+    display: flex;
+    padding: 12px;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+.projectItem {
+    /* padding-left: 12px;
+    padding-right: 12px; */
+    padding: 4px 12px;
+}

@@ -1,0 +1,226 @@
+{
+    "myTasksDetailsLibrary": [
+        {
+            "myTaskName": "Go shopping",
+            "taskDescription": "Buy some clothes",
+            "myStartDate": "2025-02-12T23:00:00.000Z",
+            "myDueDate": "2025-02-13T23:00:00.000Z",
+            "taskCategory": "shopping",
+            "taskPriority": "medium",
+            "createdAt": "2025-02-20T19:52:00.771Z",
+            "uniqueTaskId": "1740081120771i8xyjes8h",
+            "modifiedAt": null
+        },
+        {
+            "myTaskName": "Go on a trip",
+            "taskDescription": "Visit some northern states in Nigeria",
+            "myStartDate": "2025-02-12T23:18:00.000Z",
+            "myDueDate": "2025-02-19T02:22:00.000Z",
+            "taskCategory": "travel",
+            "taskPriority": "medium",
+            "createdAt": "2025-02-20T19:52:00.772Z",
+            "uniqueTaskId": "1740081120772m7txpcqe7",
+            "modifiedAt": null
+        },
+        {
+            "myTaskName": "Do Dishes",
+            "taskDescription": "And clean the kitchen.",
+            "myStartDate": "2025-02-13T11:06:00.000Z",
+            "myDueDate": "2025-02-20T01:10:00.000Z",
+            "taskCategory": "family",
+            "taskPriority": "medium",
+            "createdAt": "2025-02-20T19:52:00.772Z",
+            "uniqueTaskId": "1740081120772n8dac0iy3",
+            "modifiedAt": null
+        },
+        {
+            "myTaskName": "Take a flight",
+            "taskDescription": "From Bangkok to Lisbon",
+            "myStartDate": "2025-02-21T12:42:00.000Z",
+            "myDueDate": "2025-02-27T14:44:00.000Z",
+            "taskCategory": "travel",
+            "taskPriority": "medium",
+            "createdAt": "2025-02-20T19:52:00.773Z",
+            "uniqueTaskId": "1740081120773uilj886kw",
+            "modifiedAt": null
+        },
+        {
+            "myTaskName": "Balling",
+            "myStartDate": "2025-02-21T09:48:00.000Z",
+            "myDueDate": "2025-02-28T09:53:00.000Z",
+            "createdAt": "2025-02-21T07:46:25.835Z",
+            "uniqueTaskId": "1740123985835flgbzvdrh",
+            "modifiedAt": "2025-02-21T07:51:46.398Z",
+            "taskDescription": "Thank God it's Friday.",
+            "taskCategory": "personal",
+            "taskPriority": "medium"
+        },
+        {
+            "myTaskName": "Listen to Music",
+            "myStartDate": "2025-02-21T08:26:31.308Z",
+            "myDueDate": null,
+            "createdAt": "2025-02-21T08:26:31.308Z",
+            "uniqueTaskId": "1740126391308jpj71eiy2",
+            "modifiedAt": null
+        },
+        {
+            "myTaskName": "Get Dinner!",
+            "myStartDate": null,
+            "myDueDate": null,
+            "createdAt": "2025-02-21T08:58:26.172Z",
+            "uniqueTaskId": "1740128306172akg3o4rxr",
+            "modifiedAt": "2025-02-21T08:58:47.098Z",
+            "taskDescription": "",
+            "taskCategory": "",
+            "taskPriority": ""
+        },
+        {
+            "myTaskName": "Get Dinner",
+            "myStartDate": null,
+            "myDueDate": null,
+            "createdAt": "2025-02-21T08:59:24.791Z",
+            "uniqueTaskId": "1740128364791veyceoxrc",
+            "modifiedAt": "2025-02-21T08:59:31.060Z",
+            "taskDescription": "",
+            "taskCategory": "",
+            "taskPriority": ""
+        },
+        {
+            "myTaskName": "Who Knows?",
+            "myStartDate": "2025-02-21T09:05:32.093Z",
+            "myDueDate": null,
+            "createdAt": "2025-02-21T09:05:32.093Z",
+            "uniqueTaskId": "17401287320938pwxhwnm1",
+            "modifiedAt": null
+        },
+        {
+            "myTaskName": "Dance",
+            "myStartDate": "2025-02-21T09:09:51.935Z",
+            "myDueDate": null,
+            "createdAt": "2025-02-21T09:09:51.935Z",
+            "uniqueTaskId": "1740128991935ftwa4rxon",
+            "modifiedAt": null
+        },
+        {
+            "myTaskName": "Meditate",
+            "myStartDate": "2025-02-21T09:13:00.000Z",
+            "myDueDate": "2025-02-25T19:18:00.000Z",
+            "createdAt": "2025-02-21T09:13:59.337Z",
+            "uniqueTaskId": "17401292393379y6rkl4tg",
+            "modifiedAt": "2025-02-22T15:53:00.274Z",
+            "taskDescription": "Be calm",
+            "taskCategory": "fitness",
+            "taskPriority": "high",
+            "taskChecklist": [],
+            "taskCompletionStatus": false
+        },
+        {
+            "myTaskName": "Pray",
+            "myStartDate": "2025-02-21T09:16:00.000Z",
+            "myDueDate": "2025-02-28T14:20:00.000Z",
+            "createdAt": "2025-02-21T09:16:21.379Z",
+            "uniqueTaskId": "1740129381379wt9xd1duf",
+            "modifiedAt": "2025-02-21T09:16:51.270Z",
+            "taskDescription": "Jumat is Important",
+            "taskCategory": "personal",
+            "taskPriority": "medium"
+        },
+        {
+            "myTaskName": "Focus",
+            "myStartDate": "2025-02-21T09:21:00.000Z",
+            "myDueDate": "2025-03-07T12:25:00.000Z",
+            "createdAt": "2025-02-21T09:21:51.719Z",
+            "uniqueTaskId": "17401297117194mtpgdc7c",
+            "modifiedAt": "2025-02-21T09:22:41.553Z",
+            "taskDescription": "Really really focus.",
+            "taskCategory": "work",
+            "taskPriority": "high"
+        },
+        {
+            "myTaskName": "Practice Time",
+            "taskDescription": "Pactice a lot of things.",
+            "myStartDate": "2025-02-21T19:30:00.000Z",
+            "myDueDate": "2025-02-28T22:33:00.000Z",
+            "taskCategory": "travel",
+            "taskPriority": "medium",
+            "createdAt": "2025-02-21T17:28:39.833Z",
+            "uniqueTaskId": "1740158919833xb3q93th3",
+            "modifiedAt": null
+        },
+        {
+            "myTaskName": "Think about taking up a leadership role.",
+            "taskDescription": "It is important you continue to practice leadership. We have to humble ourselves enough to serve.",
+            "myStartDate": "2025-02-22T11:42:00.000Z",
+            "myDueDate": "2025-02-28T14:45:00.000Z",
+            "taskCategory": "leadership",
+            "taskPriority": "medium",
+            "createdAt": "2025-02-22T10:41:30.009Z",
+            "uniqueTaskId": "1740220890009v42mf56vi",
+            "modifiedAt": "2025-02-22T11:16:34.753Z"
+        },
+        {
+            "myTaskName": "Watch Football",
+            "taskDescription": "EPL",
+            "myStartDate": "2025-02-22T13:58:00.000Z",
+            "myDueDate": "2025-02-27T16:02:00.000Z",
+            "taskCategory": "football",
+            "taskPriority": "low",
+            "createdAt": "2025-02-22T10:56:22.904Z",
+            "uniqueTaskId": "17402217829045k6au5plt",
+            "modifiedAt": "2025-02-22T11:17:19.857Z"
+        },
+        {
+            "myTaskName": "hmmm",
+            "taskDescription": "okay",
+            "myStartDate": "2025-02-22T13:43:00.000Z",
+            "myDueDate": null,
+            "taskCategory": "random",
+            "taskPriority": "low",
+            "taskCompletionStatus": false,
+            "createdAt": "2025-02-22T11:42:04.793Z",
+            "uniqueTaskId": "1740224524793rdylos47m",
+            "modifiedAt": "2025-02-22T12:41:26.451Z",
+            "taskChecklist": [
+                "Let's",
+                "Try",
+                "This",
+                "Again"
+            ]
+        },
+        {
+            "myTaskName": "Touch grass",
+            "taskDescription": "A little",
+            "myStartDate": "2025-02-22T17:49:00.000Z",
+            "myDueDate": "2025-03-07T18:50:00.000Z",
+            "taskCategory": "random",
+            "taskPriority": "medium",
+            "taskChecklist": [
+                "Any grass",
+                "at all.",
+                "Green grasses"
+            ],
+            "taskCompletionStatus": false,
+            "createdAt": "2025-02-22T12:44:54.403Z",
+            "uniqueTaskId": "1740228294403h7xfwaqve",
+            "modifiedAt": "2025-02-22T13:41:37.862Z"
+        },
+        {
+            "myTaskName": "New TASK",
+            "taskDescription": "Just do it",
+            "myStartDate": "2025-02-22T15:01:00.000Z",
+            "myDueDate": "2025-02-28T18:04:00.000Z",
+            "taskCategory": "random",
+            "taskPriority": "medium",
+            "taskChecklist": [
+                "Nike",
+                "Kine",
+                "Kone",
+                "Bismillah"
+            ],
+            "taskCompletionStatus": false,
+            "createdAt": "2025-02-22T12:58:17.732Z",
+            "uniqueTaskId": "17402290977320gqjpqxmm",
+            "modifiedAt": "2025-02-22T14:32:29.120Z"
+        }
+    ]
+}

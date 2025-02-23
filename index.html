@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List247</title>
+    <link rel="icon" href="./assets/favicon_io/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./assets/fonts/Montserat-webfont/stylesheet.css">
+    <link rel="stylesheet" href="./assets/fonts/Poppins-webfont/stylesheet.css">
+    <link rel="stylesheet" href="./assets/fonts/montserrat-v29-latin/stylesheet.css">
+    <script src="https://cdn.jsdelivr.net/npm/date-fns@3.6.0/cdn.min.js"></script>
+    <script type="module" src="index.js"></script>
+</head>
+
+<body>
+    <div id="all_element">
+        <div id="header_and_form">
+            <div id="header">
+                <h2 class="trebuchet">List 247</h2>
+            </div>
+            <div id="task_form_parent">
+                <div id="task_form">
+                    <form id="myForm" autocomplete="off">
+                        <!-- <label for="new_task" class="label_new_task">What are you doing today?</label> -->
+                        <div id="input_and_button">
+                            <input type="text" name="new_task" id="new_task" class="new_task" placeholder="What are you doing today ?!" required>
+                            <button type="submit" id="new_task_button">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <title>plus-circle-outline</title>
+                                    <path
+                                        d="M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M13,7H11V11H7V13H11V17H13V13H17V11H13V7Z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="content_layout">
+            <div id="sidebar">
+                <div id="yesterdayDiv">
+                    <span class="svg-span">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>calendar-arrow-left</title><path d="M19 3H18V1H16V3H8V1H6V3H5C3.89 3 3 3.89 3 5V19C3 20.1 3.89 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.89 20.1 3 19 3M19 19H5V8H19V19M12 10V12H16V15H12V17L8 13.5L12 10Z" /></svg>
+                    </span>
+                    <span>Yesterday</span>
+                </div>
+                <div id="todayDiv">
+                    <span class="svg-span">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>calendar</title><path d="M19,19H5V8H19M16,1V3H8V1H6V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H18V1M17,12H12V17H17V12Z" /></svg>
+                    </span>
+                    <span>Today</span>
+                </div>
+                <div id="tomorrowDiv">
+                    <span class="svg-span">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>calendar-arrow-right</title><path d="M19 3H18V1H16V3H8V1H6V3H5C3.89 3 3 3.89 3 5V19C3 20.1 3.89 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.89 20.1 3 19 3M19 19H5V8H19V19M12 17V15H8V12H12V10L16 13.5L12 17Z" /></svg>
+                    </span>
+                    <span>Tomorrow</span>
+                </div>
+                <div id="next7DaysDiv">
+                    <span class="svg-span">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>calendar-plus</title><path d="M19 19V8H5V19H19M16 1H18V3H19C20.11 3 21 3.9 21 5V19C21 20.11 20.11 21 19 21H5C3.89 21 3 20.1 3 19V5C3 3.89 3.89 3 5 3H6V1H8V3H16V1M11 9.5H13V12.5H16V14.5H13V17.5H11V14.5H8V12.5H11V9.5Z" /></svg>
+                    </span>
+                    <span>Next 7 days</span>
+                </div>
+                <div id="thisMonthDiv">
+                    <span class="svg-span">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>calendar-month</title><path d="M9,10V12H7V10H9M13,10V12H11V10H13M17,10V12H15V10H17M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1H18V3H19M19,19V8H5V19H19M9,14V16H7V14H9M13,14V16H11V14H13M17,14V16H15V14H17Z" /></svg>
+                    </span>
+                    <span>This Month</span>
+                </div>
+                <div id="thisQuarterDiv">
+                    <span class="svg-span">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>calendar-week-outline</title><path d="M5 3H6V1H8V3H16V1H18V3H19C20.11 3 21 3.89 21 5V19C21 20.1 20.11 21 19 21H5C3.9 21 3 20.11 3 19V5C3 3.89 3.9 3 5 3M5 19H19V9H5V19M5 7H19V5H5V7M17 11V13H7V11H17" /></svg>
+                    </span>
+                    <span>This Quarter</span>
+                </div>
+                <div id="thisYearDiv">
+                    <span class="svg-span">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>timetable</title><path d="M14,12H15.5V14.82L17.94,16.23L17.19,17.53L14,15.69V12M4,2H18A2,2 0 0,1 20,4V10.1C21.24,11.36 22,13.09 22,15A7,7 0 0,1 15,22C13.09,22 11.36,21.24 10.1,20H4A2,2 0 0,1 2,18V4A2,2 0 0,1 4,2M4,15V18H8.67C8.24,17.09 8,16.07 8,15H4M4,8H10V5H4V8M18,8V5H12V8H18M4,13H8.29C8.63,11.85 9.26,10.82 10.1,10H4V13M15,10.15A4.85,4.85 0 0,0 10.15,15C10.15,17.68 12.32,19.85 15,19.85A4.85,4.85 0 0,0 19.85,15C19.85,12.32 17.68,10.15 15,10.15Z" /></svg>
+                    </span>
+                    <span>This Year</span>
+                </div>
+            </div>
+            <div id="tasks_display"></div>
+            <div id="task_details">
+                <div id="task_details_child"></div>
+                <div id="task_details_creation_form">
+                    <form id="task_details_creation" autocomplete="off">
+                        <div class="new_task_form_span"><span>New Task</span></div>
+                        <input type="text" id="form_status" value="none" hidden>
+                        <input type="text" id = "task_entry_id" hidden>
+                        <div class="new_task_form_child">
+                            <label for="task_name">Task Name</label>
+                            <input type="text" id="task_name" required>
+                        </div>
+                        <div class="new_task_form_child">
+                            <label for="task_description">Task Description</label>
+                            <input type="text" id="task_description">
+                        </div>
+                        <div class="new_task_form_child" id="form_checklist">
+                            <fieldset>
+                                <legend>Checklist: </legend>
+                                <div id="check_item_group">
+                                    <div class="new_task_form_child fieldset_child check_item_div" id="checkitem-1" >
+                                        <label for="check_item_1">Item 1:</label>
+                                        <input type="text" id="check_item_1" class="check_item" >
+                                        <button class="fieldset_remove_button" id="fieldset_remove_button">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>minus-circle-outline</title><path d="M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M7,13H17V11H7" /></svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div id="button_capsule"><button class="add_check_item" id="add_check_item">Add a new item</button></div>
+                            </fieldset>
+                        </div>
+                        <div class="new_task_form_child">
+                            <label for="start_date">Start Date</label>
+                            <input type="date" id="start_date">
+                        </div>
+                        <div class="new_task_form_child">
+                            <label for="due_date">Due Date</label>
+                            <input type="date" id="due_date">
+                        </div>
+                        <div class="new_task_form_child">
+                            <label for="start_time">Start Time</label>
+                            <input type="time" id="start_time" step="60">
+                        </div >
+                        <div class="new_task_form_child">
+                            <label for="due_time">Due Time</label>
+                            <input type="time" id="due_time">
+                        </div>
+                        <div class="new_task_form_child">
+                            <label for="task_category">Project Category:</label>
+                            <select id="task_category">
+                                <!-- <option value="">-- Select Category --</option>
+                                <option value="work">Work</option>
+                                <option value="personal">Personal</option>
+                                <option value="shopping">Shopping</option>
+                                <option value="fitness">Fitness</option>
+                                <option value="family">Family</option>
+                                <option value="business">Business</option>
+                                <option value="travel">Travel</option>
+                                <option value="new_project">**Add a new Project**</option> -->
+                            </select>
+                        </div>
+                        <div class="new_task_form_child">
+                            <label for="extra_project"><b>Add a Project:</b></label>
+                            <input type="text" id="extra_project" disabled>
+                        </div>
+                        <div class="new_task_form_child">
+                            <label for="task_priority">Task Priority:</label>
+                            <select id="task_priority">
+                                <option value="">-- Select Priority --</option>
+                                <option value="high">High</option>
+                                <option value="medium">Medium</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </div>
+                        <div id="button_group">
+                            <button type="submit" value="submit">Submit</button>
+                            <button type="reset">Reset</button>
+                            <button>Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

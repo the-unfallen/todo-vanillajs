@@ -1,41 +1,4 @@
-import { myTasksDetailsLibrary } from "./index.js";
-
-export class CreateTask {
-    #name;
-
-    constructor(name) {
-        this.setName(name);
-    };
-
-    //Secure setter for name
-    setName(newName) {
-        if (typeof newName === 'string' && newName.trim() !== '') {
-            this.#name = newName;
-        } else {
-            throw new Error('Invalid name');
-        }
-    }
-
-    getName() {
-        return this.#name;
-    }
-
-    // Convert to a JSON-friendly format
-    toJSON() {
-        return {
-            name: this.#name, // Store private value as a normal property
-        };
-    }
-
-    // Method to reconstruct an object from JSON
-    static fromJSON(obj) {
-        return new CreateTask(obj.name);
-    }
-}
-
-
-
-
+import { addDays } from 'https://cdn.jsdelivr.net/npm/date-fns@3.6.0/+esm';
 
 export function CreateTaskDetails(taskName, initialTaskDescription, startDate, dueDate, initialTaskCategory, initialTaskPriority, initialTaskChecklist=[], initialTaskCompletionStatus = false) {
     if (typeof taskName !== 'string' || taskName.trim() === '') {
@@ -55,14 +18,14 @@ export function CreateTaskDetails(taskName, initialTaskDescription, startDate, d
         myStartDate = startDate;
     }
 
-    if (verifyDate(dueDate)) {
+    if (verifyDate(dueDate) && (myDueDate > myStartDate)) {
         myDueDate = dueDate;
+    } else {
+        myDueDate = addDays(new Date(), 1);
     }
 
 
-    if (myDueDate < myStartDate) {
-        myDueDate = null;
-    }
+
     // let taskCompletionStatus = false;
     const createdAt = new Date();
     const modifiedAt = null;
@@ -168,7 +131,7 @@ export function ModifyTaskDetails(taskId, taskName, taskDescription, startDate, 
 
     let libraryArray = JSON.parse(localStorage.getItem('tasksLibrary')) || [];
     let task_index = null;
-    console.log(taskId);
+    // console.log(taskId);
 
 
     for(let i = 0; i < libraryArray.length; i++) {
@@ -176,7 +139,7 @@ export function ModifyTaskDetails(taskId, taskName, taskDescription, startDate, 
         // console.log(libraryArray[i].uniqueTaskId);
         if(libraryArray[i].uniqueTaskId === taskId) {
             task_index = i;
-            console.log({task_index});
+            // console.log({task_index});
             break;
         }
     }

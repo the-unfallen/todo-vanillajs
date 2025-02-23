@@ -9,7 +9,7 @@ import { displaythisMonthTasks } from './display_control.js';
 import { displayThisQuarterDiv } from './display_control.js';
 import { displayThisYearTasks } from './display_control.js';
 import { generateProjectNames } from './display_control.js';
-import { CreateTask, CreateTaskDetails, getHoursAndMinutes, ModifyTaskDetails } from "./task.js";
+import {  CreateTaskDetails, getHoursAndMinutes, ModifyTaskDetails } from "./task.js";
 import { initializeFunction } from './initialize.js';
 
 let initialObject = CreateTaskDetails('Breathe', 'Take a deep breathe', '', '','personal','low',['Breathe in', 'Breathe Out'], false);

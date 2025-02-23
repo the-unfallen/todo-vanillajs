@@ -134,9 +134,9 @@ function editTaskActivity(editButton){
     document.getElementById('task_details_creation_form').style.display = 'block';
     TASKDETAILS.style.display = 'none';
     
-    console.log('Button Index: ');
+    // console.log('Button Index: ');
     const button_task_id = editButton.dataset.buttonIndex;
-    console.log({button_task_id});
+    // console.log({button_task_id});
     let button_task_object = '';
 
     const libraryArray = JSON.parse(localStorage.getItem('tasksLibrary')) || [];
@@ -148,7 +148,7 @@ function editTaskActivity(editButton){
         }
     }
 
-    console.log(button_task_object);
+    // console.log(button_task_object);
 
 
 
@@ -631,6 +631,20 @@ function displayTasks(subjectArray) {
 
             taskBlock.appendChild(taskBlockDescriptionParagraph);
 
+            //create and append task Checklist
+            const unorderedChecklist = document.createElement('ul');
+            unorderedChecklist.classList.add('checkListUl');
+            let myCheckList = this_task.taskChecklist;
+            if(myCheckList){
+                for(let i = 0; i < myCheckList.length; i++){
+                    let check_li = document.createElement('li');
+                    check_li.textContent = myCheckList[i];
+                    unorderedChecklist.appendChild(check_li);
+                }
+            }
+            unorderedChecklist.style.listStyleType = "square";
+            taskBlock.appendChild(unorderedChecklist);
+
             // Task Start Date and Due Date
             const taskDurationDiv = document.createElement('div');
             taskDurationDiv.classList.add('taskDurationDiv');
@@ -799,7 +813,7 @@ function editTask(){
     editButtons.forEach(function(this_edit_button){
         this_edit_button.addEventListener('click', (event) => {
             event.stopPropagation();
-            console.log(event.target);
+            // console.log(event.target);
             editTaskActivity(this_edit_button);
 
         })

@@ -1,6 +1,39 @@
+let initialArray = [];
+let initialObject = CreateTaskDetails('Breathe');
+console.log({initialObject})
+initialArray.push(initialObject);
+console.log({initialArray});
+
+
+let storedData = localStorage.getItem('tasksLibrary');
+console.log("Raw localStorage data:", storedData); // Debugging
+
+let myTasksDetailsLibrary = JSON.parse(storedData);
+
+console.log("myTasksDetailsLibrary before validation:", myTasksDetailsLibrary);
+
+import {initializeFunction} from './initialize.js';
+
+if (!myTasksDetailsLibrary || !Array.isArray(myTasksDetailsLibrary) || myTasksDetailsLibrary.length === 0) {
+    console.log('Empty Library')
+    localStorage.removeItem('tasksLibrary');
+    localStorage.setItem('tasksLibrary', []);
+    initializeFunction();
+}
+
+myTasksDetailsLibrary = JSON.parse(localStorage.getItem('tasksLibrary'));
+
+console.log("Final myTasksDetailsLibrary:", myTasksDetailsLibrary);
+
+localStorage.setItem('tasksLibrary', JSON.stringify(myTasksDetailsLibrary));
+
+
+
+
+
 // import { newTaskFormHandling } from "./form.js";
 import { format, addDays, startOfDay, endOfDay, formatISO, add} from 'https://cdn.jsdelivr.net/npm/date-fns@3.6.0/+esm';
-import { capitalizeFirstLetter, displayAllTasks, displayControlSystem} from './display_control.js';
+import { capitalizeFirstLetter, displayAllTasks} from './display_control.js';
 import { displayYesterdayTask } from './display_control.js';
 import { displayTodayTasks } from './display_control.js';
 import { displayTomorrowTasks } from './display_control.js';
@@ -9,15 +42,10 @@ import { displaythisMonthTasks } from './display_control.js';
 import { displayThisQuarterDiv } from './display_control.js';
 import { displayThisYearTasks } from './display_control.js';
 import { generateProjectNames } from './display_control.js';
-import {  CreateTaskDetails, getHoursAndMinutes, ModifyTaskDetails } from "./task.js";
-import { initializeFunction } from './initialize.js';
-
-let initialObject = CreateTaskDetails('Breathe', 'Take a deep breathe', '', '','personal','low',['Breathe in', 'Breathe Out'], false);
+import { displayCurrentArray } from './display_control.js';
+import { CreateTaskDetails, getHoursAndMinutes, ModifyTaskDetails } from "./task.js";
 
 
-
-// localStorage.setItem('tasksLibrary', JSON.stringify([]));
-export let myTasksDetailsLibrary = JSON.parse(localStorage.getItem('tasksLibrary')) || [initialObject];
 
 // initializeFunction();
 
@@ -31,7 +59,7 @@ export let myTasksDetailsLibrary = JSON.parse(localStorage.getItem('tasksLibrary
 
 
 displayAllTasks();
-// displayControlSystem();
+
 
 displayYesterdayTask();
 displayTodayTasks();
@@ -41,6 +69,7 @@ displaythisMonthTasks();
 displayThisQuarterDiv();
 displayThisYearTasks();
 generateProjectNames();
+displayCurrentArray();
 
 
 
@@ -69,10 +98,13 @@ function newTaskFormHandling() {
                 console.error('Caught an error:', err.message);
             }
         };
+        // displayCurrentArray();
         taskProjectsInnerHTML();
         removeAllCheckItemDiv();
-        displayAllTasks();
-        generateProjectNames();
+        // displayAllTasks();
+        
+        displayCurrentArray();
+        // generateProjectNames();
         // displayControlSystem();
         document.getElementById('new_task').value = '';
         document.getElementById('task_details_child').style.display = 'none';
@@ -160,11 +192,14 @@ function taskDetailsFormHandling() {
         document.querySelectorAll('#task_details_creation select').forEach(function(item){
             item.value = '';
         })
+        
         taskProjectsInnerHTML();
         removeAllCheckItemDiv()
-        displayAllTasks();
+        // displayAllTasks();
         // displayControlSystem();
-        generateProjectNames();
+        
+        displayCurrentArray();
+        // generateProjectNames();
 
 
     });

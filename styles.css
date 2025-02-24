@@ -294,8 +294,36 @@ body {
 
 
 .taskDetailsItem {
-    font-family: 'poppinsregular';
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
+
+.taskDetailsItem button {
+    margin-left:auto;
+    margin-right: auto;
+    border: 2px solid var(--dark-green);
+    background: none;
+    border-radius: 20px;
+    color: var(--dark-green);
+    cursor: pointer;
+    padding: 6px 14px;
+}
+
+
+.taskDetailsItem button:hover {
+    background-color: var(--dark-green);
+    color: white;
+}
+
+.taskTitle {
+    font-weight: bold;
+    margin-left:auto;
+    margin-right: auto;
+    font-size: 18px;
+}
+
 
 #edit_task_details_button {
     margin-top: 20px;
@@ -319,7 +347,7 @@ body {
     color: #1f1f1f;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 8px;
 }
 
 

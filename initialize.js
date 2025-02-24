@@ -1,47 +1,22 @@
 import { CreateTaskDetails } from "./task.js";
-// import { myTasksDetailsLibrary } from "./index.js";
 
 export function initializeFunction() {
     const myStarterTasks = [
         {
-            myTaskName: "Go shopping",
-            taskDescription: "Buy some clothes",
+            myTaskName: "Task 1",
+            taskDescription: "Something interesting",
             taskCategory: "shopping",
             taskPriority: "medium",
-            myStartDate: new Date("2025-02-12T23:00:00.000Z"),
-            myDueDate: new Date("2025-02-13T23:00:00.000Z"),
+            myStartDate: new Date(),
+            myDueDate: null
         },
         {
-            myTaskName: "Write a novel",
-            taskDescription: "Start my novel about a fuji musician",
+            myTaskName: "Task 2",
+            taskDescription: "Something nice",
             taskCategory: "personal",
-            taskPriority: "medium",
-            myStartDate: new Date("2025-02-19T23:00:00.000Z"),
-            myDueDate: new Date("2025-02-20T23:00:00.000Z"),
-        },
-        {
-            myTaskName: "Go on a trip",
-            taskDescription: "Visit some northern states in Nigeria",
-            taskCategory: "travel",
-            taskPriority: "medium",
-            myStartDate: new Date("2025-02-12T23:18:00.000Z"),
-            myDueDate: new Date("2025-02-19T02:22:00.000Z"),
-        },
-        {
-            myTaskName: "Do Dishes",
-            taskDescription: "And clean the kitchen.",
-            taskCategory: "family",
-            taskPriority: "medium",
-            myStartDate: new Date("2025-02-13T11:06:00.000Z"),
-            myDueDate: new Date("2025-02-20T01:10:00.000Z"),
-        },
-        {
-            myTaskName: "Take a flight",
-            taskDescription: "From Bangkok to Lisbon",
-            taskCategory: "travel",
-            taskPriority: "medium",
-            myStartDate: new Date("2025-02-21T12:42:00.000Z"),
-            myDueDate: new Date("2025-02-27T14:44:00.000Z"),
+            taskPriority: "high",
+            myStartDate: new Date(),
+            myDueDate: null
         }
     ];
 

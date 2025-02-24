@@ -1,16 +1,16 @@
 let initialArray = [];
 let initialObject = CreateTaskDetails('Breathe');
-console.log({initialObject})
+// console.log({initialObject})
 initialArray.push(initialObject);
-console.log({initialArray});
+// console.log({initialArray});
 
 
 let storedData = localStorage.getItem('tasksLibrary');
-console.log("Raw localStorage data:", storedData); // Debugging
+// console.log("Raw localStorage data:", storedData); // Debugging
 
 let myTasksDetailsLibrary = JSON.parse(storedData);
 
-console.log("myTasksDetailsLibrary before validation:", myTasksDetailsLibrary);
+// console.log("myTasksDetailsLibrary before validation:", myTasksDetailsLibrary);
 
 import {initializeFunction} from './initialize.js';
 
@@ -23,7 +23,7 @@ if (!myTasksDetailsLibrary || !Array.isArray(myTasksDetailsLibrary) || myTasksDe
 
 myTasksDetailsLibrary = JSON.parse(localStorage.getItem('tasksLibrary'));
 
-console.log("Final myTasksDetailsLibrary:", myTasksDetailsLibrary);
+// console.log("Final myTasksDetailsLibrary:", myTasksDetailsLibrary);
 
 localStorage.setItem('tasksLibrary', JSON.stringify(myTasksDetailsLibrary));
 

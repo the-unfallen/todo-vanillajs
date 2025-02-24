@@ -1,5 +1,4 @@
 
-// import { myTasksDetailsLibrary } from "./index.js";
 import { format } from "https://cdn.jsdelivr.net/npm/date-fns/format.mjs";
 import { sub } from "https://cdn.jsdelivr.net/npm/date-fns/sub.mjs";
 import { isWithinInterval } from "https://cdn.jsdelivr.net/npm/date-fns/isWithinInterval.mjs";
@@ -7,11 +6,9 @@ import { add, addDays, startOfMonth, endOfMonth, startOfQuarter, endOfQuarter, s
 import { formatDistanceToNow } from "https://cdn.jsdelivr.net/npm/date-fns/formatDistanceToNow.mjs";
 
 import { taskProjectsInnerHTML, addCheckItemDiv, projectCategoryCounts } from "./index.js";
-// let highlightedDiv = document.getElementById('todayDiv');
+
 
 let myTasksDetailsLibrary = JSON.parse(localStorage.getItem('tasksLibrary')) || [];
-
-console.log({myTasksDetailsLibrary});
 
 
 export function displayAllTasks() {
@@ -61,9 +58,8 @@ function editTaskActivity(editButton){
     document.getElementById('task_details_creation_form').style.display = 'block';
     TASKDETAILS.style.display = 'none';
     
-    // console.log('Button Index: ');
+
     const button_task_id = editButton.dataset.buttonIndex;
-    // console.log({button_task_id});
     let button_task_object = '';
 
     const libraryArray = JSON.parse(localStorage.getItem('tasksLibrary')) || [];
@@ -75,7 +71,6 @@ function editTaskActivity(editButton){
         }
     }
 
-    // console.log(button_task_object);
 
 
 
@@ -90,14 +85,14 @@ function editTaskActivity(editButton){
     const uniqueRawStartDate = add(new Date(button_task_object.myStartDate), {hours: 2});
     const uniqueRawDueDate = add(new Date(button_task_object.myDueDate), {hours: 2});
 
-    // const uniqueStartDate = uniqueRawStartDate.toISOString().split("T")[0];
     const uniqueStartDate = format(uniqueRawStartDate, 'yyyy-MM-dd');
-    // const uniqueDueDate = uniqueRawDueDate.toISOString().split("T")[0];
     const uniqueDueDate = format(uniqueRawDueDate, 'yyyy-MM-dd');
+
     console.log(uniqueStartDate);
     console.log(uniqueDueDate);
     let uniqueStartTime = null;
     let uniqueDueTime = null;
+
     if(button_task_object.myStartDate){
         uniqueStartTime = format(button_task_object.myStartDate, 'HH:mm');
     };
@@ -142,8 +137,6 @@ export function controlAllTaskBlocks() {
     allTaskBlocks.forEach(function (this_Block) {
         this_Block.onclick = function (event) {
             console.log(event.target);
-            // console.log('TASK ITEM DIV CLICKED!');
-            // console.log(document.getElementById('task_details_child'));
 
             const TASKDETAILS = document.getElementById('task_details_child');
             TASKDETAILS.innerHTML = '';
@@ -153,68 +146,103 @@ export function controlAllTaskBlocks() {
             taskDetailsItem.id = `item-${this_Block.id}`;
             taskDetailsItem.classList.add('taskDetailsItem');
             const itemIndexArray = this_Block.id.split('-');
-            ///////
+  
             const this_task_unique_id = itemIndexArray[1];
             let this_task_object = '';
-
             const libraryArray = JSON.parse(localStorage.getItem('tasksLibrary')) || [];
-
             for(let i = 0; i < libraryArray.length; i++) {
                 if(libraryArray[i].uniqueTaskId === this_task_unique_id) {
                     this_task_object = libraryArray[i];
-                    // break;
                 }
             }
             
 
             if(this_task_object){
                 const taskStartDate = new Date(this_task_object.myStartDate);
-                // console.log({taskStartDate});
                 const taskDueDate = new Date(this_task_object.myDueDate);
-                // console.log({taskDueDate});
                 const displayStartDate = format(taskStartDate, 'iiii, do MMMM yyyy');
-                const displayStartTime = format(taskStartDate, 'HH:mm OOOO');
+                const displayStartTime = format(taskStartDate, 'hh:mm aaa');
                 const displayDueDate = format(taskDueDate, 'iiii, do MMMM yyyy');
-                const displayDueTime = format(taskDueDate, 'HH:mm OOOO');
+                const displayDueTime = format(taskDueDate, 'hh:mm aaa');
+                
 
+                const taskTitle = document.createElement('div');
+                taskTitle.classList.add('taskTitle');
                 const taskNameDiv = document.createElement('div');
                 const taskDescriptionDiv = document.createElement('div');
                 const taskStartDateDiv = document.createElement('div');
                 const taskStartTimeDiv = document.createElement('div');
                 const taskDueDateDiv = document.createElement('div');
                 const taskDueTimeDiv = document.createElement('div');
+                const taskChecklistDiv = document.createElement('div');
                 const taskCategoryDiv = document.createElement('div');
                 const taskPriorityDiv = document.createElement('div');
+                const taskCreatedAtDiv = document.createElement('div');
+                const taskModifiedAtDiv = document.createElement('div');
                 const taskEditButton = document.createElement('button');
 
-                taskNameDiv.textContent = this_task_object.myTaskName;
-                taskDescriptionDiv.textContent = this_task_object.taskDescription;
-                taskStartDateDiv.textContent = displayStartDate;
-                taskStartTimeDiv.textContent = displayStartTime;
-                taskDueDateDiv.textContent = displayDueDate;
-                taskDueTimeDiv.textContent = displayDueTime;
-                taskCategoryDiv.textContent = this_task_object.taskCategory;
-                taskPriorityDiv.textContent = this_task_object.taskPriority;
+                taskTitle.textContent = 'Task Details'
+                taskNameDiv.textContent = 'Task Name: ' + this_task_object.myTaskName;
+                taskDescriptionDiv.textContent = 'Task Description: ' + this_task_object.taskDescription;
+                taskStartDateDiv.textContent = 'Start Date: ' +  displayStartDate;
+                taskStartTimeDiv.textContent =  'Start Time: ' + displayStartTime;
+                taskDueDateDiv.textContent = 'Due Date: ' + displayDueDate;
+                taskDueTimeDiv.textContent = 'Due Time: ' + displayDueTime;
+                taskCategoryDiv.textContent = 'Task Project: ' + this_task_object.taskCategory;
+                taskPriorityDiv.textContent = 'Task Priority: ' + this_task_object.taskPriority;
                 taskEditButton.id = 'edit_task_details_button';
                 taskEditButton.textContent = 'Edit Task Details';
                 taskEditButton.dataset.buttonIndex = this_task_unique_id;
 
+
+                if (this_task_object.taskChecklist){
+                    const this_task_checklist = this_task_object.taskChecklist
+                    if (this_task_checklist.length > 0){
+                        const checkListLabel = document.createElement('span');
+                        checkListLabel.textContent = 'Checklist: '
+                        const checkListUl = document.createElement('ul');
+                        for(let i = 0; i < this_task_checklist.length; i++){
+                            const nthListItem = document.createElement('li');
+                            nthListItem.textContent = this_task_checklist[i];
+                            checkListUl.appendChild(nthListItem);
+                        }
+                        taskChecklistDiv.appendChild(checkListLabel);
+                        taskChecklistDiv.appendChild(checkListUl);
+                    }
+                }
+
+                const createdDateText = format(new Date(this_task_object.createdAt), 'hh:mm aaa, do MMMM yyyy')
+
+                taskCreatedAtDiv.textContent = 'Created at: ' + createdDateText
+
+                if(this_task_object.modifiedAt != null || this_task_object.modifiedAt != undefined || this_task_object.modifiedAt != ''){
+                    if(this_task_object.modifiedAt){
+                        const modifiedDateText = format(new Date(this_task_object.modifiedAt), 'hh:mm aaa, do MMMM yyyy');
+                        taskModifiedAtDiv.textContent = 'Last Modified at: ' + modifiedDateText;
+                    }
+                }
+                
+
+                taskDetailsItem.appendChild(taskTitle);
                 taskDetailsItem.appendChild(taskNameDiv);
                 taskDetailsItem.appendChild(taskDescriptionDiv);
                 taskDetailsItem.appendChild(taskStartDateDiv);
                 taskDetailsItem.appendChild(taskStartTimeDiv);
                 taskDetailsItem.appendChild(taskDueDateDiv);
                 taskDetailsItem.appendChild(taskDueTimeDiv);
+                taskDetailsItem.appendChild(taskChecklistDiv);
                 taskDetailsItem.appendChild(taskCategoryDiv);
                 taskDetailsItem.appendChild(taskPriorityDiv);
+                taskDetailsItem.appendChild(taskCreatedAtDiv);
+                taskDetailsItem.appendChild(taskModifiedAtDiv);
                 taskDetailsItem.appendChild(taskEditButton);
                 
             };
 
             TASKDETAILS.appendChild(taskDetailsItem);
-            controlEditButton();
+            
             if(this_task_object){
-                
+                controlEditButton();
             }
             
 
@@ -283,9 +311,7 @@ export function displayTodayTasks(){
             };
         };
 
-        // Populate DOM with task names that are still active today
-        console.log({todayDate});
-        console.log({todayTasks});
+
         removeHighlight();
         todayDiv.classList.add('highlight');
         displayTasks(todayTasks);
@@ -688,9 +714,6 @@ function displayTasks(subjectArray) {
             taskBlock.appendChild(taskCategoryAndPriorityDiv);
 
 
-            //const displayStartDate = format(taskStartDate, 'iiii, do MMMM yyyy');
-            //const displayStartTime = format(taskStartDate, 'HH:mm OOOO');
-
             displayBoard.appendChild(taskBlock);
 
 
@@ -762,12 +785,9 @@ export function generateProjectNames() {
                 document.getElementById('displayByProjects').appendChild(projectItem);
             };
         };
-        // highlightedDiv.classList.add('highlight');
+
         displayProjectGroupTasks();
-        // if(document.getElementById('the_hidden_div')){
-        //     let theHiddenDiv = document.getElementById('the_hidden_div');
-        //     document.getElementById(theHiddenDiv.textContent).classList.add('highlight');
-        // }
+
     };
     
 }
@@ -781,9 +801,7 @@ function displayProjectGroupTasks() {
             // event.stopPropagation();
             console.log(`${this_project_group.id} is clicked.`)
             let this_project_text = this_project_group.id;
-            // if(this_project_text.includes('-')){
-            //     this_project_text = this_project_text.replace('-', ' ');
-            // }
+
             const tasksLibrary = JSON.parse(localStorage.getItem('tasksLibrary')) || [];
             let this_project_array = [];
             if(this_project_text === 'others'){
@@ -794,12 +812,6 @@ function displayProjectGroupTasks() {
             console.log({this_project_text}, {this_project_array});
 
             displayTasks(this_project_array);
-            // const hiddenDiv = document.createElement('div');
-            // hiddenDiv.id = 'the_hidden_div';
-            // hiddenDiv.textContent = this_project_group.id;
-            // hiddenDiv.style.visibility = "hidden";
-            // document.getElementById('tasks_display').appendChild(hiddenDiv);
-
             removeHighlight();
             this_project_group.classList.add('highlight');
             controlAllTaskBlocks();
@@ -809,31 +821,12 @@ function displayProjectGroupTasks() {
 }
 
 
-
-// export function displayControlSystem(){
-//     displayYesterdayTask();
-//     displayTodayTasks();
-//     displayTomorrowTasks();
-//     displayNext7Days();
-//     displaythisMonthTasks();
-//     displayThisQuarterDiv();
-//     displayThisYearTasks();
-//     generateProjectNames();
-// }
-// id="yesterdayDiv"
-// id="todayDiv"
-// id="tomorrowDiv"
-// id="next7DaysDiv"
-// id="thisMonthDiv"
-// id="thisQuarterDiv"
-// id="thisYearDiv"
-
 const byTime = ["yesterdayDiv", "todayDiv", "tomorrowDiv", "next7DaysDiv", "thisMonthDiv", "thisQuarterDiv", "thisYearDiv"];
 
 export function displayCurrentArray() {
     const highlightedDiv = document.querySelector('.highlight');
     const highlightedDivId = highlightedDiv.id;
-    console.log(highlightedDiv);
+    // console.log(highlightedDiv);
     if (byTime.includes(highlightedDiv.id)){
         highlightedDiv.click();
     } else {
@@ -852,23 +845,11 @@ export function displayCurrentArray() {
         if(document.getElementById(highlightedDivId)){
             document.getElementById(highlightedDivId).classList.add('highlight');
         }
-        // highlightedDiv
-        // highlightedDiv.textContent = `${capitalizeFirstLetter(this_project_text)} (${this_project_array.length})`;
-        // const projectCounts = projectCategoryCounts();
-        // for(let i = 0; i < projectCounts.length; i++){
-        //     const project_entry = projectCounts[i];
-        //     let project_entry_id = project_entry.project_category.trim();
-        //     const divToUpdate = document.getElementById(project_entry_id);
-        //     if (divToUpdate != highlightedDiv){
-        //         divToUpdate.textContent = `${capitalizeFirstLetter(project_entry_id)} (${project_entry.frequency})`;
-        //     }
-        // }
         controlAllTaskBlocks();
 
 
     }
 
-    // return highlightedDiv;
     
 }
 

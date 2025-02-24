@@ -780,7 +780,10 @@ function displayProjectGroupTasks() {
         this_project_group.onclick = () => {
             // event.stopPropagation();
             console.log(`${this_project_group.id} is clicked.`)
-            const this_project_text = this_project_group.id;
+            let this_project_text = this_project_group.id;
+            // if(this_project_text.includes('-')){
+            //     this_project_text = this_project_text.replace('-', ' ');
+            // }
             const tasksLibrary = JSON.parse(localStorage.getItem('tasksLibrary')) || [];
             let this_project_array = [];
             if(this_project_text === 'others'){
@@ -788,6 +791,7 @@ function displayProjectGroupTasks() {
             } else {
                 this_project_array = tasksLibrary.filter(task => task.taskCategory === this_project_text);
             }
+            console.log({this_project_text}, {this_project_array});
 
             displayTasks(this_project_array);
             // const hiddenDiv = document.createElement('div');
@@ -828,6 +832,7 @@ const byTime = ["yesterdayDiv", "todayDiv", "tomorrowDiv", "next7DaysDiv", "this
 
 export function displayCurrentArray() {
     const highlightedDiv = document.querySelector('.highlight');
+    const highlightedDivId = highlightedDiv.id;
     console.log(highlightedDiv);
     if (byTime.includes(highlightedDiv.id)){
         highlightedDiv.click();
@@ -843,9 +848,24 @@ export function displayCurrentArray() {
 
         displayTasks(this_project_array);
         removeHighlight();
-        highlightedDiv.classList.add('highlight');
-        highlightedDiv.textContent = `${capitalizeFirstLetter(this_project_text)} (${this_project_array.length})`;
+        generateProjectNames();
+        if(document.getElementById(highlightedDivId)){
+            document.getElementById(highlightedDivId).classList.add('highlight');
+        }
+        // highlightedDiv
+        // highlightedDiv.textContent = `${capitalizeFirstLetter(this_project_text)} (${this_project_array.length})`;
+        // const projectCounts = projectCategoryCounts();
+        // for(let i = 0; i < projectCounts.length; i++){
+        //     const project_entry = projectCounts[i];
+        //     let project_entry_id = project_entry.project_category.trim();
+        //     const divToUpdate = document.getElementById(project_entry_id);
+        //     if (divToUpdate != highlightedDiv){
+        //         divToUpdate.textContent = `${capitalizeFirstLetter(project_entry_id)} (${project_entry.frequency})`;
+        //     }
+        // }
         controlAllTaskBlocks();
+
+
     }
 
     // return highlightedDiv;

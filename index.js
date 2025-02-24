@@ -156,6 +156,8 @@ function taskDetailsFormHandling() {
             taskCategory = document.getElementById('task_category').value.toLowerCase();
             // taskCategory = taskCategory.trim();
         }
+        taskCategory = taskCategory.trim();
+        taskCategory = taskCategory.replace(' ', '_');
         // const taskCategory = document.getElementById('task_category').value;
         const taskPriority = document.getElementById('task_priority').value;
         let checklistArray = [];
@@ -239,7 +241,7 @@ export function taskProjectsInnerHTML(){
         if(mergedProjects[i] && mergedProjects[i].length > 0) {
             const this_project = mergedProjects[i];
             const this_option = document.createElement('option');
-            this_option.value = this_project.toLowerCase();
+            this_option.value = this_project.trim().toLowerCase();
             this_option.textContent = capitalizeFirstLetter(this_project);
             selectProject.appendChild(this_option);
         }
